@@ -30,7 +30,7 @@ function perNum(array, MaxDif) {
                     break
                 }
             }
-            else { tup.perNum([array[count]]) }
+            else { tup.push([array[count]]) }
             
             if (count2 > tum.length) {
                 tup.push([array[count]])
