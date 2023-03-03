@@ -14,12 +14,13 @@ function perNum(array, MaxDif) {
         max,
         place = 0
 
-//make small groups
-//each group's maximum and minimum difference 
-//will not bigger than minimum*MaxDif
+    //make small groups
+    //each group's maximum and minimum difference 
+    //will not bigger than minimum*MaxDif
     for (var count = 0; count <= array.length; count++) {
         for (var count2 = 0; count2 <= tup[count].length; count2++) {
             if (array[count] / tum[count2][0] < MaxDif) {
+                //define:[0]smallest,[-1]biggest
                 if (array[count] <= tup[count2][0]) {
                     tup[count2].unshift(array[count])
                     break
@@ -29,11 +30,14 @@ function perNum(array, MaxDif) {
                     break
                 }
             }
+            else { tup.perNum([array[count]]) }
+            
             if (count2 > tum.length) {
                 tup.push([array[count]])
             }
-//every number will go it's percent of this small array
+            //every number will go it's percent of this small array
             for (var count = 0; count <= tup.length; count++) {
+                //index of the small array is the smallset,last one is the biggest
                 Max = tum[count][-1]
                 for (var count2 = 0; count2 <= tup[count].length; count2++) {
                     place = tup[conut][count2] / Max * tup[count].length
@@ -47,3 +51,4 @@ function perNum(array, MaxDif) {
         return result
     }
 }
+perNum(randomarray(),5)
