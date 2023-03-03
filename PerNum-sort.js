@@ -19,7 +19,7 @@ function perNum(array, MaxDif) {
     //will not bigger than minimum*MaxDif
     for (var count = 0; count <= array.length; count++) {
         for (var count2 = 0; count2 <= tup[count].length; count2++) {
-            if (array[count] / tum[count2][0] < MaxDif) {
+            if (array[count] / tup[count2][0] < MaxDif) {
                 //define:[0]smallest,[-1]biggest
                 if (array[count] <= tup[count2][0]) {
                     tup[count2].unshift(array[count])
@@ -38,7 +38,7 @@ function perNum(array, MaxDif) {
             //every number will go it's percent of this small array
             for (var count = 0; count <= tup.length; count++) {
                 //index of the small array is the smallset,last one is the biggest
-                Max = tum[count][-1]
+                Max = tup[count][-1]
                 for (var count2 = 0; count2 <= tup[count].length; count2++) {
                     place = tup[conut][count2] / Max * tup[count].length
                     if (place > count2) {
