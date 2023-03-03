@@ -6,7 +6,7 @@ function randomarray(item) {
     for (var i = 0; i < item; i++) {
         array.splice(randint(0, array.length), 0, i)
     }
-    console.log(array);
+    console.log(array, 'length:' + array.length);
     return array
 }
 function perNum(array, MaxDif) {
@@ -18,30 +18,38 @@ function perNum(array, MaxDif) {
     //each tup[count]'s maximum and minimum difference 
     //will not bigger than minimum*MaxDif
     for (var count = 0; count < array.length; count++) {
-        for (var count2 = 0; count2 < tup[count2] || Array.length; count2++) {
-            if (array[count] / tup[count2][0] > MaxDif && count2 >= tup[count2] || [][0]) {
-                tup.push(array[count])
-            } else {
+        for (var count2 = 0; count2 < tup.length; count2++) {
+            if (array[count] / tup[count2][0] < MaxDif) {
                 //define:[0]smallest,[<length>]biggest
+                //in min*MaxDif
                 if (array[count] <= tup[count2][0]) {
                     tup[count2].unshift(array[count])
                     break
-                }
-                else {
+                    //smallest
+                } else if (array[count] > tup[count].slice(-1, -1)[0]) {
                     tup[count2].push(array[count])
                     break
+                    //biggest
                 }
+                else {
+                    tup[count2].splice(1, 0, array[count])
+                    break
+                    //middle
+                }
+            } else if (count2 == tup.length-1) {
+                tup.push(array[count2])
+                //out of multiple,add new small group
             }
         }
     }
     console.log(tup);
     //every number will go it's percent of this small array
-    for (var count = 0; count <= tup.length; count++) {
+    for (var count = 0; count < tup.length; count++) {
         //index of the small array is the smallset,last one is the biggest
-        var Max = tup[count].slice(-1, -1),
-            item = tup[count][count2]
+        max = tup[count].slice(-1 - 1)[0]
         for (var count2 = 0; count2 <= tup[count].length; count2++) {
-            place = item / Max * tup[count].length
+            var item = tup[count][count2]
+            place = item / max * tup[count].length
             if (place > count2) {
                 place++
             }
@@ -50,10 +58,10 @@ function perNum(array, MaxDif) {
         }
     }
 
-    for (var count = 0; count <= tup.length; count++) {
+    for (var count = 0; count < tup.length; count++) {
         result += tup[count]
     }
     return result
 
 }
-console.log(perNum(randomarray(100), 5))
+console.log(perNum(randomarray(100), 200))
