@@ -51,4 +51,4 @@ function perNum(array, MaxDif) {
         return result
     }
 }
-perNum(randomarray(),5)
+console.log(MathperNum(randomarray(),5))
