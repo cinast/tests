@@ -9,19 +9,19 @@ function randomarray(item) {
     console.log(array, 'length:' + array.length);
     return array
 }
-function perNum(array, MaxDif) {
+function perNum(array, DifMult) {
     var tup = [[]],
         result = [],
         place = 0
 
     //make small groups
     //each tup[count]'s maximum and minimum difference 
-    //will not bigger than minimum*MaxDif
+    //will not bigger than minimum*DifMult
     for (var count = 0; count < array.length; count++) {
         for (var count2 = 0; count2 < tup.length; count2++) {
-            if (array[count] / tup[count2][0] < MaxDif) {
+            if (array[count] / tup[count2][0] < DifMult) {
                 //define:[0]smallest,[<length>]biggest
-                //in min*MaxDif
+                //in min*DifMult
                 if (array[count] <= tup[count2][0]) {
                     tup[count2].unshift(array[count])
                     break
@@ -36,12 +36,14 @@ function perNum(array, MaxDif) {
                     break
                     //middle
                 }
-            } else if (count2 == tup.length-1) {
-                tup.push(array[count2])
+            } else if (count2 == tup.length - 1) {
+                tup.push(new Array()[0] = array[count])
+                break
                 //out of multiple,add new small group
             }
         }
     }
+    tup.splice(0, 1)
     console.log(tup);
     //every number will go it's percent of this small array
     for (var count = 0; count < tup.length; count++) {
