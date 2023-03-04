@@ -16,17 +16,18 @@ function perNum(array, DifMult) {
 
     //make small groups
     //each tup[count]'s maximum and minimum difference 
-    //will not bigger than minimum*DifMult
+    //will not bigger than minimum*DifMult also not small then maximun*(1/DifMult)
     for (var count = 0; count < array.length; count++) {
-        for (var count2 = 0; count2 < tup.length; count2++) {
-            if (array[count] / tup[count2][0] < DifMult) {
+        for (var count2=0,max =tup[count2].slice(-1, -1)[0]; count2 < tup.length; count2++) {
+            if (array[count] <= tup[count2][0] * DifMult && array[count] >= max / DifMult) {
                 //define:[0]smallest,[<length>]biggest
                 //in min*DifMult
-                if (array[count] <= tup[count2][0]) {
+
+                if (array[count] <= tup[count2][0] ) {
                     tup[count2].unshift(array[count])
                     break
                     //smallest
-                } else if (array[count] > tup[count].slice(-1, -1)[0]) {
+                } else if (array[count] > max) {
                     tup[count2].push(array[count])
                     break
                     //biggest
