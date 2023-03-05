@@ -12,19 +12,18 @@ function randomarray(item) {
 function perNum(array, DifMult) {
     var tup = [[]],
         result = []
-        place = 0
 
     //make small groups
     //each tup[count]'s maximum and minimum difference 
     //will not bigger than minimum*DifMult also not small then maximun*(1/DifMult)
     for (var count = 0; count < array.length; count++) {
-        for (var count2=0; count2 < tup.length; count2++) {
-            var group = tup[count2],max=group[group.length-1]
+        for (var count2 = 0; count2 < tup.length; count2++) {
+            var group = tup[count2], max = group[group.length - 1]
             if (group[0] * DifMult >= array[count] >= max / DifMult) {
                 //define:[0]smallest,[<length>]biggest
                 //in min*DifMult
 
-                if (array[count] <= group[0] ) {
+                if (array[count] <= group[0]) {
                     group.unshift(array[count])
                     break
                     //smallest
@@ -50,22 +49,19 @@ function perNum(array, DifMult) {
     //every number will go it's percent of this small array
     for (var count = 0; count < tup.length; count++) {
         //index of the small array is the smallset,last one is the biggest
-        max = tup[count].slice(-1 - 1)[0]
-        for (var count2 = 0; count2 <= tup[count].length; count2++) {
-            var item = tup[count][count2]
-            place = item / max * tup[count].length
+        group = tup[count]
+        max = group[group.length]
+        for (var count2 = 0; count2 < group.length; count2++) {
+            var item = group[count2],
+                place = item / max * group.length
             if (place > count2) {
                 place++
             }
-            tup[count].splice(count2, 1)
-            tup[count].splice(place, 0, item)
+            group.splice(count2, 1)
+            group.splice(place, 0, item)
+        
         }
-    }
-
-    for (var count = 0; count < tup.length; count++) {
-        result += tup[count]
-    }
-    return result
-
+        result += group
+    }return result
 }
-console.log(perNum(randomarray(100), 200))
+console.log(perNum(randomarray(100),100))
