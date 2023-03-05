@@ -1,5 +1,5 @@
-*an un-interesting request
-with an un-interesting sort*
+an un-interesting request  
+with an un-interesting sort
 
 ---
 
@@ -19,4 +19,4 @@ with an un-interesting sort*
 ### The progress
 - find 2 new problems:
   - cannot process **great difference** numbers
-  - regional orderly &emsp; (like ` 99,98,97,5,70,56,...`)
+  - regional orderly &#10; (like`99,98,97,5,70,56,...`)
