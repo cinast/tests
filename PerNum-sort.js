@@ -11,34 +11,35 @@ function randomarray(item) {
 }
 function perNum(array, DifMult) {
     var tup = [[]],
-        result = [],
+        result = []
         place = 0
 
     //make small groups
     //each tup[count]'s maximum and minimum difference 
     //will not bigger than minimum*DifMult also not small then maximun*(1/DifMult)
     for (var count = 0; count < array.length; count++) {
-        for (var count2=0,max =tup[count2].slice(-1, -1)[0]; count2 < tup.length; count2++) {
-            if (array[count] <= tup[count2][0] * DifMult && array[count] >= max / DifMult) {
+        for (var count2=0; count2 < tup.length; count2++) {
+            var group = tup[count2],max=group[group.length-1]
+            if (group[0] * DifMult >= array[count] >= max / DifMult) {
                 //define:[0]smallest,[<length>]biggest
                 //in min*DifMult
 
-                if (array[count] <= tup[count2][0] ) {
-                    tup[count2].unshift(array[count])
+                if (array[count] <= group[0] ) {
+                    group.unshift(array[count])
                     break
                     //smallest
                 } else if (array[count] > max) {
-                    tup[count2].push(array[count])
+                    group.push(array[count])
                     break
                     //biggest
                 }
                 else {
-                    tup[count2].splice(1, 0, array[count])
+                    group.splice(1, 0, array[count])
                     break
                     //middle
                 }
             } else if (count2 == tup.length - 1) {
-                tup.push(new Array()[0] = array[count])
+                tup.push([array[count]])
                 break
                 //out of multiple,add new small group
             }
