@@ -16,7 +16,7 @@ with an un-interesting sort
 }
 ```
 ---
-### The progress
+### NOW progress
 - find 2 new problems:
   - cannot process **great difference** numbers
   - regional orderly &#10; (like`99,98,97,5,70,56,...`)
