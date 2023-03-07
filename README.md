@@ -41,10 +41,9 @@ just put number in rigth place by one move
 >this is a fast sort **but have to** depend on *bucketSort* **first**.  
 >### **- why -**
 >pernum is very good in process **Approximate numbers**  or **simple likes**  
-<i style="font-size:0.8em">
-be fast:`[1,5,3,4,2]`or`[1221,1150,1405,1192...]`</i>   
-but not **big differs'**   
-<i style="font-size:0.8em">very worse:`[1250,6854,112786,268,3446...]`</i>  
+><i style="font-size:0.8em">be fast:`[1,5,3,4,2]`or`[1221,1150,1405,1192...]`</i>   
+>but not **big differs'**   
+><i style="font-size:0.8em">very worse:`[1250,6854,112786,268,3446...]`</i>  
 >
 >we cannot get **no much accuracy**  
  (especially in great dif & short array)  
